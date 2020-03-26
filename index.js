@@ -55,3 +55,26 @@ function recamanIndex(n) {
 }
 
 console.log(recamanIndex(18));
+
+/* 
+  Extend the global Array object to have
+  an instance method called isEqual().
+  The method should accept an array as the
+  first argument, and a second optional
+  argument that is a flag to ignore the
+  order of the arrays. This second argument
+  should default to false
+*/
+// Comparing arrays
+Array.prototype.isEqual = function(arr, ignoreOrder = false) {
+  // Good
+  console.log(this.join(), arr.join());
+  // Bad
+  console.log(this.join(''), arr.join(''));
+  console.log(this.join``, arr.join``);
+
+  if (ignoreOrder === false) return this.join() === arr.join();
+  else return this.sort().join() === arr.sort().join();
+};
+
+console.log([1, 1, 2, 3, 4].isEqual([112, 34]));
