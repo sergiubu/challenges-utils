@@ -69,6 +69,7 @@ console.log(recamanIndex(18));
 Array.prototype.isEqual = function(arr, ignoreOrder = false) {
   // Good
   console.log(this.join(), arr.join());
+  console.log(JSON.stringify(this), JSON.stringify(arr));
   // Bad
   console.log(this.join(''), arr.join(''));
   console.log(this.join``, arr.join``);
