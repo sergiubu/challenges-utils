@@ -107,3 +107,21 @@ function canConcatenate(arr, target) {
 }
 
 console.log(canConcatenate([1, [2, [3]]], [3, 2, 1]));
+
+/* 
+Given a two digit number, return true if
+that number contains one even and one odd digit.
+*/
+function oneOddOneEven(n) {
+  return [...String(n)].reduce((a, b) => +a + +b) % 2 !== 0;
+
+  // return ~~(n / 10) % 2 !== n % 2;
+
+  // return `${n}`[0] % 2 !== `${n}`[1] % 2;
+
+  // return [...`${n}`].every(val => val % 2 === 0)
+  //   ? false
+  //   : [...`${n}`].some(val => val % 2 === 0);
+}
+
+console.log(oneOddOneEven(26));
