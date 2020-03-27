@@ -79,3 +79,31 @@ Array.prototype.isEqual = function(arr, ignoreOrder = false) {
 };
 
 console.log([1, 1, 2, 3, 4].isEqual([112, 34]));
+
+/* 
+Create a function that returns true if smaller
+arrays can concatenate to form the target array
+and false otherwise.
+- Arrays do not have to be sorted
+- Arrays should concatenate to create the final
+array exactly
+*/
+function canConcatenate(arr, target) {
+  return (
+    []
+      .concat(...arr)
+      .sort()
+      .join('') === target.sort().join('')
+  );
+
+  // return return [].concat.apply([], arr).length === target.length;
+
+  // return arr.flat(Infinity).reduce((ac, cv) => ac + cv) ===
+  // 				target.reduce((ac, cv) => ac + cv);
+
+  // return JSON.stringify(arr.reduce((a, v) => a.concat(v), []).sort()) === JSON.stringify(target.sort());
+
+  // return String(arr.reduce((a, b) => [...a, ...b], []).sort()) === String(target.sort());
+}
+
+console.log(canConcatenate([1, [2, [3]]], [3, 2, 1]));
