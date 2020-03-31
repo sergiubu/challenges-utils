@@ -142,3 +142,40 @@ function shirtSize({ size = 'big' }) {
 function shirtSize({ size = 'big' } = {}) {
   return size;
 }
+
+/* 
+Fix anotherFunc() so that calls to it will
+change the doc variable to bye.
+Keep the setTimeout to 100ms and do not change
+the callback function or the doc variable.
+*/
+// From this:
+function anotherFunc() {
+  let str = 'bye';
+  setTimeout(() => {}, 100);
+}
+
+var doc = 'hello';
+
+function callback(str) {
+  doc = str;
+}
+
+// To this:
+function anotherFunc(cb) {
+  let str = 'bye';
+  // Or you can call the function directly,
+  // instead of passing it as a param
+  // callback(str);
+  setTimeout(() => {
+    cb(str);
+    // callback(str);
+  }, 100);
+  // callback(str);
+}
+
+var doc = 'hello';
+
+function callback(str) {
+  doc = str;
+}
