@@ -179,3 +179,16 @@ var doc = 'hello';
 function callback(str) {
   doc = str;
 }
+
+/* 
+Create a function that takes a number and
+returns an array with the digits of the number
+in reverse order.
+*/
+function reverseArr(num) {
+  return Array.from(String(num), Number).reverse();
+  // return [...String(n)].map(Number).reverse();
+  // return String(num).split('').reverse().map(Number);
+}
+
+console.log(reverseArr(1485979));
