@@ -226,3 +226,26 @@ function sumDigProd(...nums) {
 // let sumDigProd = (...arr) => prod(arr.reduce((a, b) => a + b));
 
 console.log(sumDigProd(999, 2222));
+
+/* 
+You are given the length of a video in minutes.
+The format is mm:ss (e.g.: "02:54").
+Create a function that takes the video
+length and return it in seconds.
+- The video length is given as a string.
+- If the number of seconds is 60 or over, return false.
+- You may get a number of minutes over 99 (e.g. "121:49" is perfectly valid).
+*/
+function minutesToSeconds(time) {
+  return time.split(':')[1] >= 60
+    ? false
+    : time.split(':').reduce((ac, cv) => ac * 60 + +cv);
+
+  // let [minutes, seconds] = time.split(':').map(Number);
+  // return seconds < 60 ? minutes * 60 + seconds : false;
+
+  // let arr = time.split(':');
+  // return arr[1] >= 60 ? false : arr[0] * 60 + +arr[1];
+}
+
+console.log(minutesToSeconds('00:50'));
