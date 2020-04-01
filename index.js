@@ -192,3 +192,37 @@ function reverseArr(num) {
 }
 
 console.log(reverseArr(1485979));
+
+/* 
+Create a function that takes numbers as
+arguments, adds them together, and returns
+the product of digits until the answer is
+only 1 digit long.
+*/
+function sumDigProd(...nums) {
+  const sum = nums.reduce((ac, cv) => ac + cv);
+  if (sum > 9)
+    return sumDigProd([...`${sum}`].map(Number).reduce((ac, cv) => ac * cv));
+  //return sumDigProd([...`${+sum}`].reduce((ac, cv) => ac * cv));
+  else return sum;
+
+  // let n = args.reduce((a,v) => a + v, 0);
+  // while (n > 9) { n = [...''+n].reduce((a,v) => a * +v, 1); }
+  // return n;
+
+  // n = nums.reduce((a, b) => a + b, 0) + '';
+  // while (n.length > 1) n = [...n].reduce((a, b) => a * b) + '';
+  // return +n;
+}
+
+// let prod = n =>
+//   n < 10
+//     ? n
+//     : prod(
+//         +String(n)
+//           .split('')
+//           .reduce((a, b) => a * b)
+//       );
+// let sumDigProd = (...arr) => prod(arr.reduce((a, b) => a + b));
+
+console.log(sumDigProd(999, 2222));
