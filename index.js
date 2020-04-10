@@ -66,7 +66,7 @@ console.log(recamanIndex(18));
   should default to false
 */
 // Comparing arrays
-Array.prototype.isEqual = function(arr, ignoreOrder = false) {
+Array.prototype.isEqual = function (arr, ignoreOrder = false) {
   // Good
   console.log(this.join(), arr.join());
   console.log(JSON.stringify(this), JSON.stringify(arr));
@@ -249,3 +249,19 @@ function minutesToSeconds(time) {
 }
 
 console.log(minutesToSeconds('00:50'));
+
+/* 
+Create a function that takes a variable number
+of groups of items, and returns the number of
+ways the items can be arranged, with one item
+from each group. Order does not matter.
+*/
+function combinations(items) {
+  return [...arguments].reduce((acc, v) => (v ? acc * v : acc + v), 1);
+
+  // return [...arguments].filter(Boolean).reduce((a, b) => a * b, 1);
+  // return [...arguments].reduce((acc, item) => (item === 0 ? acc : acc * item));
+  // return [...arguments].filter((val) => val !== 0).reduce((ac, cv) => ac * cv);
+}
+
+console.log(combinations(6, 7, 0));
