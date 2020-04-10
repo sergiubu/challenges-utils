@@ -265,3 +265,20 @@ function combinations(items) {
 }
 
 console.log(combinations(6, 7, 0));
+
+/* 
+Create a function that takes a number as
+input and returns true if the sum of its
+digits has the same parity as the entire number.
+Otherwise, return false.
+- Parity is whether a number is even or odd.
+  If the sum of the digits is even and the number
+  itself is even, return true. The same goes if
+  the number is odd and so is the sum of its digits.
+- Single digits will obviously have the same parities.
+*/
+function parityAnalysis(num) {
+  return num % 2 === [...String(num)].reduce((sum, x) => sum + +x, 0) % 2;
+
+  // return num % 2 === Array.from(String(num), Number).reduce((ac, cv) => ac + cv) % 2;
+}
