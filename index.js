@@ -282,3 +282,19 @@ function parityAnalysis(num) {
 
   // return num % 2 === Array.from(String(num), Number).reduce((ac, cv) => ac + cv) % 2;
 }
+
+// Format phone number
+function createPhoneNumber(nums) {
+  return '(xxx) xxx-xxxx'.replace(/x/g, (_) => nums.shift());
+
+  // return `(${nums.slice(0, 3)}) ${nums.slice(3, 6)}-${nums.slice(-4)}`
+  // .replace(/,/g, '');
+
+  // let number = "(xxx) xxx-xxxx";
+  // for(let i = 0; i < nums.length; i++) {
+  // 	number = number.replace('x', nums[i]);
+  // }
+  // return number;
+}
+
+console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]));
