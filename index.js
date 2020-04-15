@@ -298,3 +298,36 @@ function createPhoneNumber(nums) {
 }
 
 console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]));
+
+/* 
+Someone has attempted to censor my strings by
+replacing every vowel with a *, l*k* th*s.
+Luckily, I've been able to find the vowels that
+were removed.
+Given a censored string and a string of the
+censored vowels, return the original uncensored string.
+- The vowels are given in the correct order.
+- The number of vowels will match the number
+of * characters in the censored string.
+*/
+function uncensor(str, vowels) {
+  // const vowelsArr = [...vowels];
+  vowels = [...vowels];
+  return str.replace(/\*/g, () => vowels.shift());
+
+  // let v = [...vowels];
+  // return [...str].map((val) => (val === '*' ? val.shift() : val)).join``;
+
+  // for (let i = 0; i < vowels.length; i++) {
+  //   str = str.replace('*', vowels[i]);
+  // }
+  // return str;
+
+  // while (vowels) {
+  //   str = str.replace(/\*/, vowels[0]);
+  //   vowels = vowels.slice(1);
+  // }
+  // return str;
+}
+
+console.log(uncensor('Wh*r* d*d my v*w*ls g*?', 'eeioeo'));
