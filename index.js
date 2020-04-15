@@ -350,3 +350,23 @@ function getCharCount(str) {
 }
 
 console.log(getCharCount('77722220'));
+
+// Which planet name will it be?
+var planetname = 'Mars';
+var obj = {
+  planetname: 'Venus',
+  prop: {
+    planetname: 'Saturn',
+    getFullname: function () {
+      return this.planetname;
+    },
+  },
+};
+//=================================
+console.log(obj.prop.getFullname());
+
+//=================================
+console.log(this.planetname);
+// this goes to global window
+var output = obj.prop.getFullname;
+console.log(output());
