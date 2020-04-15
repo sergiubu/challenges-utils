@@ -331,3 +331,22 @@ function uncensor(str, vowels) {
 }
 
 console.log(uncensor('Wh*r* d*d my v*w*ls g*?', 'eeioeo'));
+
+// Count the number of chars
+function getCharCount(str) {
+  let count = 1;
+  let result = '';
+
+  str.split('').forEach((char, i) => {
+    if (char === str.charAt(i + 1)) {
+      count++;
+    } else {
+      result += count + char;
+      count = 1;
+    }
+  });
+
+  return result;
+}
+
+console.log(getCharCount('77722220'));
