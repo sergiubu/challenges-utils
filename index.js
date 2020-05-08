@@ -399,3 +399,21 @@ function removeLeadingTrailing(n) {
 
 console.log(removeLeadingTrailing('230.000'));
 console.log(removeLeadingTrailing('03.1400'));
+
+// Harshad Numbers
+/* 
+A number n is a Harshad (also called Niven)
+number if it is divisible by the sum of its
+digits. 
+For example, 666 is divisible by 6 + 6 + 6,
+so it is a Harshad number.
+*/
+function isHarshad(num) {
+  return num % [...`${num}`].reduce((ac, cv) => ac + +cv, 0) === 0;
+
+  // return n > 0 && !(n % [...`${n}`].reduce((a, b) => a + +b, 0));
+
+  // return n % String(n).match(/\d/g).reduce((a,b)=> +a + +b) === 0;
+}
+
+console.log(isHarshad(713));
