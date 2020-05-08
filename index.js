@@ -417,3 +417,19 @@ function isHarshad(num) {
 }
 
 console.log(isHarshad(713));
+
+// Fractions and Rounding
+/* 
+Given a fraction frac (given in the format "1/2" for example) and n number of decimal places, return a sentence in the following format:
+
+"{fraction} rounded to {n} decimal places is {answer}"
+
+- Add trailing zeros if n is greater than the actual number of decimal places the fraction has (see example #2).
+- Numbers greater than one may be given as top-heavy fractions (no mixed numbers).
+- n won't be 1 because that would cause "decimal places" to be "decimal place", making the challenge more cumbersome than it needs to be.
+*/
+function fracRound(frac, n) {
+  return `${frac} rounded to ${n} decimal places is ${eval(frac).toFixed(n)}`;
+}
+
+console.log(fracRound('42/42', 7));
