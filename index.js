@@ -446,3 +446,13 @@ function isSafeBridge(str) {
 }
 
 console.log(isSafeBridge('## ####'));
+
+// Currying - used in functional programming
+const ensureNum = (entity) =>
+  typeof entity === 'string' ? parseInt(entity) : entity;
+
+const addNums = (a) => (b) => a + b;
+
+const incrementEach = (arr, by) => arr.map(ensureNum).map(addNums(by));
+
+console.log(incrementEach([1, '2', 3], 2));
