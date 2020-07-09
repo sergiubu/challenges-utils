@@ -456,3 +456,17 @@ const addNums = (a) => (b) => a + b;
 const incrementEach = (arr, by) => arr.map(ensureNum).map(addNums(by));
 
 console.log(incrementEach([1, '2', 3], 2));
+
+// Removing Enemies
+// Remove enemies from the list of people, even if the enemy shows up twice.
+// All names to be removed will be in the enemies list; simply return the list, no fancy strings.
+function removeEnemies(names, enemies) {
+  return names.filter((name) => !enemies.includes(name));
+
+  // return names.filter(name => enemies.indexOf(name) < 0);
+}
+
+console.log(
+  removeEnemies(['Jeff', 'Charlie', 'James', 'Fredrick'], ['James', 'Jeff']),
+  ['Charlie', 'Fredrick']
+);
