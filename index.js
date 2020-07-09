@@ -492,3 +492,28 @@ function countTrue(arr) {
 }
 
 console.log(countTrue([true, false, false, true, false]));
+
+// Positive Dominant
+// Write a function that returns true if an array is positive dominant.
+// 0 neither counts as a positive nor a negative value.
+// An array is positive dominant if it contains strictly more unique positive values than unique negative values.
+function isPositiveDominant(a) {
+  const arrSet = [...new Set(a)];
+  return (
+    arrSet.filter((val) => val > 0).length >
+    arrSet.filter((val) => val < 0).length
+  );
+
+  // return [...new Set(a)].reduce((a, b) => a + Math.sign(b), 0) > 0;
+
+  // return new Set(a.filter(x => x > 0)).size > new Set(a.filter(x => x < 0)).size;
+
+  // return [...new Set(a)].filter(x => x > 0).length > [...new Set(a)].filter(x => x < 0).length;
+
+  // return (
+  //   a.filter((e, i, a) => e > 0 && a.indexOf(e) == i).length >
+  //   a.filter((e, i, a) => e < 0 && a.indexOf(e) == i).length
+  // );
+}
+
+console.log(isPositiveDominant([1, 1, 1, 1, -3, -4]));
