@@ -517,3 +517,11 @@ function isPositiveDominant(a) {
 }
 
 console.log(isPositiveDominant([1, 1, 1, 1, -3, -4]));
+
+// Finding Common Elements
+// Create a function that takes two "sorted" arrays of numbers and returns an array of numbers which are common to both the input arrays.
+function commonElements(arr1, arr2) {
+  return [...new Set(arr1.filter((val) => arr2.includes(val)))];
+}
+
+console.log(commonElements([1, 2, 2, 2, 3, 4, 5], [1, 2, 4, 5]));
