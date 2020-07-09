@@ -482,3 +482,13 @@ function rootDigit(n) {
 }
 
 console.log(rootDigit(1238763636555555555555n));
+
+// How Much is True?
+// Create a function which returns the number of true values there are in an array.
+function countTrue(arr) {
+  return arr.filter((val) => val === true).length;
+
+  // return arr.filter(Boolean).length;
+}
+
+console.log(countTrue([true, false, false, true, false]));
