@@ -470,3 +470,15 @@ console.log(
   removeEnemies(['Jeff', 'Charlie', 'James', 'Fredrick'], ['James', 'Jeff']),
   ['Charlie', 'Fredrick']
 );
+
+// Digits Sum Root
+// Create a function that takes a number and returns one digit that is the result of summing all the digits of the input number. When the sum of the digits consists of more than one digit, repeat summing until you get one digit.
+function rootDigit(n) {
+  return n > 9 ? rootDigit([...String(n)].reduce((ac, cv) => +ac + +cv)) : n;
+
+  // return n && (+`${BigInt(n) % 9n}` || 9);
+  // return BigInt(n) < 10n ? Number(n) : rootDigit([...''+n].reduce((a,v) => +v+a, 0));
+  // return 	n < 10 ? n : rootDigit([...`${n}`].reduce((ac, cv) => a + Number(cv), 0));
+}
+
+console.log(rootDigit(1238763636555555555555n));
