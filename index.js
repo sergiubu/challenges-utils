@@ -591,3 +591,24 @@ function arrayOperation(x, y, n) {
 }
 
 console.log(arrayOperation(1, 10, 3));
+
+// Recursion to Repeat a String n Number of Times
+// Create a recursive function that takes two parameters and repeats the string n number of times. The first parameter txt is the string to be repeated and the second parameter is the number of times the string is to be repeated.
+// String.prototype.repeat() is not allowed
+function repetition(txt, n) {
+  return n ? txt + repetition(txt, n - 1) : '';
+  //return n <= 0 ? '' : txt + repetition(txt, n - 1);
+
+  //let str = '';
+  //for (let i = 0; i <= n - 1; i++) repetition(str += txt);
+  //return str;
+
+  // let res = '';
+  // while (n > 0) {
+  //   res += txt;
+  //   n--;
+  // }
+  // return res;
+}
+
+console.log(repetition('amigo', 5));
