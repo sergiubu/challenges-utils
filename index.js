@@ -525,3 +525,13 @@ function commonElements(arr1, arr2) {
 }
 
 console.log(commonElements([1, 2, 2, 2, 3, 4, 5], [1, 2, 4, 5]));
+
+// Return the Time Saved by Speeding
+// Create a function that calculates the amount of time saved (in minutes) were you traveling with an average speed that is above the speed-limit as compared to traveling with an average speed exactly at the speed-limit.
+// The paramater's format is as follows:
+// (speed limit, avg speed, distance traveled at avg speed)
+function timeSaved(lim, avg, d) {
+  return +((d / lim - d / avg) * 60).toFixed(1);
+}
+
+console.log(timeSaved(80, 90, 40));
