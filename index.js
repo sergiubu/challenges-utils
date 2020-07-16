@@ -558,3 +558,17 @@ function charAtPos(r, s) {
 
 console.log(charAtPos([2, 4, 6, 8, 10], 'even'));
 console.log(charAtPos('EDABIT', 'even'));
+
+// Clone a List
+// The Code tab has a code which attempts to add a clone of an array to itself. There is no error message, but the results are not as expected. Can you fix the code?
+function clone(arr) {
+  return [...arr, arr];
+
+  //arr.push(...arr);
+  //arr.push(arr.slice(0));
+
+  //return arr.concat([arr.map(item=>item)]);
+  //return arr;
+}
+
+console.log(clone([1, 2, 3]));
