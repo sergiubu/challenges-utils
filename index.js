@@ -612,3 +612,18 @@ function repetition(txt, n) {
 }
 
 console.log(repetition('amigo', 5));
+
+// Summing a Slice
+// Given an array and an integer n, return the sum of the first n numbers in the array.
+// If n is larger than the length of the array, return the sum of the whole array.
+function sliceSum(arr, n) {
+  return arr.slice(0, n).reduce((acc, cv) => acc + cv, 0);
+
+  // return [0, ...arr].slice(0, n + 1).reduce((x, y) => x + y);
+
+  // return n < arr.length
+  //   ? arr.slice(0, n).reduce((a, b) => a + b, 0)
+  //   : arr.reduce((a, b) => a + b, 0);
+}
+
+console.log(sliceSum([0, 0, 0, 3, 4], 3));
