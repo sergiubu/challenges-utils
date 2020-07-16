@@ -535,3 +535,26 @@ function timeSaved(lim, avg, d) {
 }
 
 console.log(timeSaved(80, 90, 40));
+
+// Oddly or Evenly Positioned
+// Create a function that extracts the characters from an array (or a string) on odd or even positions, depending on the specifier. The string 'odd' for items on odd positions (1, 2, 3, ...) and 'even' for even positions (2, 4, 6, ...).
+function charAtPos(r, s) {
+  if (typeof r === 'string') {
+    return r
+      .split('')
+      .filter((_, i) => (s === 'odd' ? !(i % 2) : i % 2))
+      .join('');
+  } else {
+    return r.filter((_, i) => (s === 'odd' ? !(i % 2) : i % 2));
+  }
+
+  // let p = [...r].filter((k, i) => {
+  //   if (s == 'odd' && !(i & 1)) return k;
+  //   if (s == 'even' && i & 1) return k;
+  // });
+
+  // return Array.isArray(r) ? p : p.join('');
+}
+
+console.log(charAtPos([2, 4, 6, 8, 10], 'even'));
+console.log(charAtPos('EDABIT', 'even'));
