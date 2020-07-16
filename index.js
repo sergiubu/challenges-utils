@@ -572,3 +572,22 @@ function clone(arr) {
 }
 
 console.log(clone([1, 2, 3]));
+
+// Array Operation
+// Create a function that takes three parameters and returns an array with the first parameter x, the second parameter y, and every number in between the first and second parameter in ascending order. Then filter through the array and return the array with numbers that are only divisible by the third parameter n.
+// The final array should consist of all numbers between x and y inclusive that are divisible by n.
+// Return an empty array if there are no numbers that are divisible by n.
+function arrayOperation(x, y, n) {
+  //return Array.from({length: y - x + 1}, (_, i) => x + i).filter(v => !(v % n));
+
+  return Array.from({ length: ++y - x }, (v, i) => i + x).filter(
+    (int) => !(int % n)
+  );
+
+  //const arr = [];
+  //for (let i = x; i <= y; i++) arr.push(i);
+
+  //return arr.filter(val => val % n === 0);
+}
+
+console.log(arrayOperation(1, 10, 3));
