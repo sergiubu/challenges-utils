@@ -637,3 +637,13 @@ function add_suffix(suffix) {
 add_ly = add_suffix('ly');
 
 console.log(add_ly('hopeless'));
+
+// Integer in Range?
+// Create a function which validates whether a number n is exclusively within the bounds of lower and upper. Return false if n is not an integer.
+// - Exclusively means that a number is considered not within the bounds if it is equal to the upper bound (see example #2).
+// - Bounds will be always given as integers.
+function intWithinBounds(n, lower, upper) {
+  return Number.isInteger(n) && n >= lower && n < upper;
+}
+
+console.log(intWithinBounds(4.5, 3, 8));
