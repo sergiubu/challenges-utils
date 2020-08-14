@@ -669,3 +669,14 @@ function factorial(num) {
 }
 
 console.log(factorial(4));
+
+// toString() Hooking
+// You have one job and one job only, to ruin the day of any unsuspecting victim using the toString() function. Hook the String prototype toString() to instead return a string that is in reverse.
+// Remember that this is an object!
+String.prototype.toString = function () {
+  return [...this].reverse().join('');
+
+  // return Array.from(this).reverse().join('');
+
+  // return Object.values(this).reverse().join('');
+};
