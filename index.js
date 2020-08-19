@@ -680,3 +680,33 @@ String.prototype.toString = function () {
 
   // return Object.values(this).reverse().join('');
 };
+
+// Temperature Converter
+// Create a function that converts Celcius to Fahrenheit and vice versa.
+// - Round to the nearest integer.
+// - If the input is incorrect, return "Error".
+
+function convert(deg) {
+  if (!/°[CF]$/.test(deg)) return 'Error';
+
+  const [number, letter] = deg.split('°');
+  return letter === 'F'
+    ? `${Math.round((number - 32) * (5 / 9))}°C`
+    : `${Math.round(number * (9 / 5) + 32)}°F`;
+
+  // if (!deg.endsWith('°C') && !deg.endsWith('°F')) return 'Error';
+
+  // return deg.endsWith('C')
+  //   ? `${Math.round((deg.slice(0, deg.length - 2) * 9) / 5 + 32)}°F`
+  //   : `${Math.round(((deg.slice(0, deg.length - 2) - 32) * 5) / 9)}°C`;
+
+  // C to F
+  // (C * 9 / 5) + 32
+  // F to C
+  // (F - 32) * 5 / 9
+}
+
+console.log(convert('100°C'));
+console.log(convert('0°F'));
+console.log(convert('33'));
+console.log(convert('7K'));
