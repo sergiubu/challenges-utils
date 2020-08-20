@@ -760,3 +760,50 @@ function countBoomerangs(arr) {
 
 console.log(countBoomerangs([9, 5, 9, 5, 1, 1, 1]));
 console.log(countBoomerangs([1, 7, 1, 7, 1, 7, 1]));
+
+// Calculate the Volume of a Pyramid
+// Create a function that takes the length, width, height (in meters) and output unit and returns the volume of a pyramid to three decimal places in the correct unit.
+// - The units used are limited to: millimeters, centimeters, meters and kilometers.
+// - Ensure you return the answer and add the correct unit in the format cubic <unit>.
+// V = (l * w * h) / 3
+function pyramidVolume(length, width, height, unit) {
+  const UNITS = {
+    millimeters: 1e3,
+    centimeters: 1e2,
+    meters: 1,
+    kilometers: 1e-3,
+  };
+
+  return `${(((length * width * height) / 3) * UNITS[unit] ** 3).toFixed(
+    3
+  )} cubic ${unit}`;
+
+  // const units = {
+  //   millimeters: 10 ** 9,
+  //   centimeters: 10 ** 6,
+  //   meters: 1,
+  //   kilometers: 10 ** -9,
+  // };
+  // const vol = (((length * width * height) / 3) * units[unit]).toFixed(3);
+  // return `${vol} cubic ${unit}`;
+
+  // switch (unit) {
+  //   case 'millimeters':
+  //     return `${(((length * width * height) / 3) * 1e9).toFixed(
+  //       3
+  //     )} cubic ${unit}`;
+  //   case 'centimeters':
+  //     return `${(((length * width * height) / 3) * 1e6).toFixed(
+  //       3
+  //     )} cubic ${unit}`;
+  //   case 'meters':
+  //     return `${((length * width * height) / 3).toFixed(3)} cubic ${unit}`;
+  //   case 'kilometers':
+  //     return `${((length * width * height) / 3 / 1e9).toFixed(
+  //       3
+  //     )} cubic ${unit}`;
+  // }
+}
+
+console.log(pyramidVolume(8, 12, 2, 'centimeters'));
+console.log(pyramidVolume(10, 14, 6, 'meters'));
