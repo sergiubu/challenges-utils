@@ -807,3 +807,43 @@ function pyramidVolume(length, width, height, unit) {
 
 console.log(pyramidVolume(8, 12, 2, 'centimeters'));
 console.log(pyramidVolume(10, 14, 6, 'meters'));
+
+// The Major Sum
+// Create a function that takes an integer array and return the biggest between positive sum, negative sum, or 0s count. The major is understood as the greatest absolute.
+// arr = [1,2,3,4,0,0,-3,-2], the function has to return 10, because:
+// - Positive sum = 1+2+3+4 = 10
+// - Negative sum = (-3)+(-2) = -5
+// - 0s count = 2 (there are two zeros in array)
+// - All numbers are integers.
+// - There aren't empty arrays.
+function majorSum(arr) {
+  const pos = arr.filter((val) => val > 0).reduce((ac, cv) => +ac + cv, []);
+  const neg = Math.abs(
+    arr.filter((val) => val < 0).reduce((ac, cv) => +ac + cv, [])
+  );
+  const zeros = arr.filter((val) => val === 0).length;
+
+  return neg === Math.max(pos, neg, zeros) ? -neg : Math.max(pos, neg, zeros);
+
+  // let [pos, neg, zero] = [0, 0, 0];
+  // arr.forEach((i) => {
+  //   i > 0 ? (pos += i) : i < 0 ? (neg += i) : zero++;
+  // });
+  // return [pos, neg, zero].sort((a, b) => Math.abs(b) - Math.abs(a))[0];
+
+  // let zeros = 0,
+  //   pos = 0,
+  //   neg = 0;
+  // for (const n of arr) {
+  //   if (!n) zeros++;
+  //   else if (n > 0) pos += n;
+  //   else neg += n;
+  // }
+
+  // const max = Math.max(zeros, pos, Math.abs(neg));
+  // return max + neg ? max : neg;
+}
+
+console.log(majorSum([0, 0, 0, 0]));
+console.log(majorSum([1, 2, 3, 4, 0, 0, -3, -2]));
+console.log(majorSum([-4, -8, -12, -3, 4, 7, 1, 3, 0, 0, 0, 0]));
