@@ -847,3 +847,19 @@ function majorSum(arr) {
 console.log(majorSum([0, 0, 0, 0]));
 console.log(majorSum([1, 2, 3, 4, 0, 0, -3, -2]));
 console.log(majorSum([-4, -8, -12, -3, 4, 7, 1, 3, 0, 0, 0, 0]));
+
+// Function Factory
+// Create a function that takes a "base number" as an argument. This function should return another function which takes a new argument, and returns the sum of the "base number" and the new argument.
+function makePlusFunction(baseNum) {
+  return (num) => baseNum + num;
+
+  // return function (num) {
+  //   return baseNum + num;
+  // };
+}
+
+// const makePlusFunction = (baseNum) => (num) => baseNum + num;
+
+const plusTwo = makePlusFunction(2);
+
+console.log(plusTwo(5));
