@@ -896,3 +896,17 @@ function isSubset(arr1, arr2) {
 }
 
 console.log(isSubset([3, 2, 5], [5, 3, 7, 9, 2]));
+
+// Instant JAZZ
+// Create a function which concantenates the number 7 to the end of every chord in an array. Ignore all chords which already end with 7.
+// - Return an empty array if the given array is empty.
+// - You can expect all the tests to have valid chords.
+function jazzify(arr) {
+  return arr.map((val) => val.split(7)[0] + 7);
+
+  // return arr.map((val) => (val.includes('7') ? val : `${val}7`));
+}
+
+console.log(jazzify(['F7', 'E7', 'A7', 'Ab7', 'Gm7', 'C7']));
+console.log(jazzify(['G', 'F', 'C']));
+console.log(jazzify(['G', 'C7']));
