@@ -863,3 +863,27 @@ function makePlusFunction(baseNum) {
 const plusTwo = makePlusFunction(2);
 
 console.log(plusTwo(5));
+
+// Pythagorean Triplet
+// Create a function that validates whether three given integers form a Pythagorean triplet. The sum of the squares of the two smallest integers must equal the square of the largest number to be validated.
+// - Numbers may not be given in a sorted order.
+function isTriplet(n1, n2, n3) {
+  const sqMax = Math.pow(Math.max(...arguments), 2);
+  const sqMin = [...arguments]
+    .sort((a, b) => a - b)
+    .slice(0, arguments.length - 1)
+    .map((val) => Math.pow(val, 2))
+    .reduce((ac, cv) => ac + cv);
+
+  return sqMax === sqMin;
+
+  // return n1 ** 2 + n2 ** 2 + n3 ** 2 == 2 * Math.max(n1, n2, n3) ** 2;
+
+  // [n1, n2, n3] = [n1, n2, n3].sort((a, b) => a - b);
+  // return n1 ** 2 + n2 ** 2 == n3 ** 2;
+
+  // spread args -> ...args
+  // return args.sort((a, b) => a - b).pop() === Math.hypot(...args);
+}
+
+console.log(isTriplet(5, 3, 4));
