@@ -931,3 +931,15 @@ function getOnlyEvens(nums) {
 }
 
 console.log(getOnlyEvens([1, 3, 2, 6, 4, 8]));
+
+// Find Number of Digits in Number
+// Create a function that will return an integer number containing the amount of digits in the given integer num.
+// - Try to solve this challenge without using strings!
+function num_of_digits(num) {
+  return ~~Math.log10(Math.abs(num)) + 1;
+
+  // return Array.from(String(Math.abs(num)), Number).length;
+}
+
+console.log(num_of_digits(-12381428));
+console.log(num_of_digits(13124));
