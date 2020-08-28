@@ -921,3 +921,13 @@ function DECIMATOR(str) {
 }
 
 console.log(DECIMATOR('1234567890AB'));
+
+// Even All the Way
+// Given an array of numbers, return an array which contains all the even numbers in the orginal array, which also have even indices.
+function getOnlyEvens(nums) {
+  return nums.filter((val, i) => !(val % 2) && !(i % 2));
+
+  // return nums.filter((val, i) => val % 2 === 0 && i % 2 === 0);
+}
+
+console.log(getOnlyEvens([1, 3, 2, 6, 4, 8]));
