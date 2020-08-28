@@ -910,3 +910,14 @@ function jazzify(arr) {
 console.log(jazzify(['F7', 'E7', 'A7', 'Ab7', 'Gm7', 'C7']));
 console.log(jazzify(['G', 'F', 'C']));
 console.log(jazzify(['G', 'C7']));
+
+// The DECIMATOR
+// Write a DECIMATOR function which takes a string and decimates it (i.e. it removes the last 1/10 of the characters).
+// Always round up: if the string has 21 characters, 1/10 of the characters would be 2.1 characters, hence the DECIMATOR removes 3 characters. The DECIMATOR shows no mercy!
+function DECIMATOR(str) {
+  return str.slice(0, -Math.ceil(str.length / 10));
+
+  // return str.slice(0, str.length - Math.ceil(str.length / 10));
+}
+
+console.log(DECIMATOR('1234567890AB'));
