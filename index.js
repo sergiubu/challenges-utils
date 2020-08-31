@@ -943,3 +943,14 @@ function num_of_digits(num) {
 
 console.log(num_of_digits(-12381428));
 console.log(num_of_digits(13124));
+
+// Find the Second Largest Number
+// Create a function that takes an array of numbers and returns the second largest number.
+function secondLargest(arr) {
+  const [largest, second, ...rest] = arr.sort((a, b) => b - a);
+  return second;
+
+  // return arr.sort((a, b) => b - a)[1];
+}
+
+console.log(secondLargest([10, 40, 30, 20, 50]));
