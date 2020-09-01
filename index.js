@@ -1011,3 +1011,16 @@ console.log(
     7
   )
 );
+
+// Dashed Vowels
+// Create a function that takes a string and returns dashes on the left and right side of every vowel (a e i o u).
+// - A string can contain uppercase and lowercase vowels.
+function dashed(str) {
+  return str.replace(/a|e|i|o|u/gi, (char) => `-${char}-`);
+
+  // return str.replace(/([aeiou])/gi, '-$1-');
+
+  // return [...str].map((x) => (/[aeiou]/i.test(x) ? `-${x}-` : x)).join('');
+}
+
+console.log(dashed('Fight for your right to party!'));
