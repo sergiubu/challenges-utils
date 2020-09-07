@@ -1071,3 +1071,39 @@ console.log(test.encrypt());
 test.reset();
 console.log(test.encrypt());
 console.log(test.decrypt());
+
+// Trace That Matrix
+// Given a square matrix (i.e. same number of rows as columns), its trace is the sum of the entries in the main diagonal (i.e. the diagonal line from the top left to the bottom right).
+// - The size of the matrices will vary (but they will always be square).
+function trace(arr) {
+  return arr.reduce((ac, cv, i) => ac + cv[i], 0);
+
+  // let trace = 0;
+  // let i = 0;
+  // while (i < arr.length) {
+  //   trace += arr[i][i];
+  //   i++;
+  // }
+  // return trace;
+
+  // let total = (index = 0);
+  // for (const num of arr) {
+  //   total += arr[index][index];
+  //   index++;
+  // }
+  // return total;
+
+  // let trace = 0;
+  // for (y = 0; y < arr.length; y++) {
+  //   trace += arr[y][y];
+  // }
+  // return trace;
+}
+
+console.log(
+  trace([
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
+  ])
+);
