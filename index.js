@@ -1024,3 +1024,50 @@ function dashed(str) {
 }
 
 console.log(dashed('Fight for your right to party!'));
+
+// SimpleCrypt
+// You'll need to decrypt some strings found on a website and maybe one of that will help you further to get your ever wanted software.
+
+// Let's do OOP and create an object:
+
+// - Create an object named SimpleCrypt with a constructor that will store the original given string.
+// - SimpleCrypt should have 3 prototypes : encrypt, decrypt, reset.
+// - Prototype encrypt should take one optional argument (string type) and will encrypt the argument if present or original string if no arguments.
+// - Prototype decrypt should take one optionnal argument too (string type) and will decrypt the argument if present or get last string with encrypt.
+// - Prototype reset should reset all object properties to origin.
+// - All whitespace should be spaces (32).
+function SimpleCrypt(str) {
+  this.original = str;
+  this.workStr = str;
+}
+
+SimpleCrypt.prototype.encrypt = function (str = this.workStr) {
+  this.workStr = [...str]
+    .map((val, i) => String.fromCharCode(val.charCodeAt(0) + (i + 1)))
+    .join('')
+    .replace(/\s/g, ' ');
+
+  return this.workStr;
+};
+
+SimpleCrypt.prototype.decrypt = function (str = this.workStr) {
+  this.workStr = [...str]
+    .map((val, i) => String.fromCharCode(val.charCodeAt(0) - (i + 1)))
+    .join('')
+    .replace(/\s/g, ' ');
+
+  return this.workStr;
+};
+
+SimpleCrypt.prototype.reset = function () {
+  this.workStr = this.original;
+};
+
+const test = new SimpleCrypt('My uncrypted str');
+
+console.log(test.encrypt());
+console.log(test.decrypt());
+console.log(test.encrypt());
+test.reset();
+console.log(test.encrypt());
+console.log(test.decrypt());
