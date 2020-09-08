@@ -1107,3 +1107,50 @@ console.log(
     [7, 8, 9],
   ])
 );
+
+// ES6 Object Methods in ES5
+// In ES6 JavaScript, there are two Object methods:
+
+// 1. Object.prototype.entries() takes a single object as an argument, and returns an array. In this array are arrays with the name of every property of the object, and the value of the property.
+// 2. Object.prototype.values() also takes a single object as an argument, and returns an array. In this array are the values of every property of the object.
+
+// Your job is to recreate these Object methods in ES5 JavaScript, creating new methods:
+
+// - Object.prototype.entriesNew()
+// - Object.prototype.valuesNew()
+
+// The methods you create should return the same values as Object.prototype.entries() and Object.prototype.values(), and should adhere to ES5 limits. If the object has no properties your methods should return an empty array.
+// - Do not use ES6 Object methods.
+// - Do not use ES6 features like arrow functions or let.
+
+/*
+ * @param {object} obj
+ * @return {array}
+ */
+
+Object.prototype.valuesNew = function (obj) {
+  var values = [];
+  for (var key in obj) {
+    if (obj.hasOwnProperty(key)) values.push(obj[key]);
+  }
+  return values;
+
+  // return Object.getOwnPropertyNames(obj).map((val) => obj[val]);
+};
+
+Object.prototype.entriesNew = function (obj) {
+  var entries = [];
+  for (var key in obj) {
+    if (obj.hasOwnProperty(key)) entries.push([key, obj[key]]);
+  }
+  return entries;
+
+  // return Object.getOwnPropertyNames(obj).map((val) => [val, obj[val]]);
+};
+
+console.log(Object.valuesNew({ name: 'john', hairColor: 'brown' }));
+console.log(Object.valuesNew({ first: 1, second: 2, third: 3 }));
+console.log(Object.entriesNew({ 1: 'One', 2: 'Two', 3: 'Three' }));
+console.log(
+  Object.entriesNew({ purpose: null, reason: 'none', cause: 'none' })
+);
