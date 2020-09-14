@@ -1154,3 +1154,29 @@ console.log(Object.entriesNew({ 1: 'One', 2: 'Two', 3: 'Three' }));
 console.log(
   Object.entriesNew({ purpose: null, reason: 'none', cause: 'none' })
 );
+
+// Verbos Regulares
+// The conjugations for all Spanish regular verbs can be built by using the 3 forms for verbs ending in -ar, -er and -ir.
+// Create a function that takes a verb as string, and returns a string with the 6 conjugations like in the examples, watch out for verbs ending in -ir, check the notes. Try programming the construction rather than forming structures with arrays.
+// - The smallest category of regular Spanish verbs is those that end in -ir. To conjugate them, remove the infinitive ending and then add one of the following verb endings:
+// ...	        Singular	  Plural
+// 1st person	  yo -o	      nosotros -imos
+// 2nd person	  tú -es	    vosotros -ís
+// 3rd person	  él -e	      ellos -en
+function espVerb(verb) {
+  const pron = ['Yo', 'tú', 'él', 'nosotros', 'vosotros', 'ellos'];
+  const conj = {
+    ar: ['o', 'as', 'a', 'amos', 'áis', 'an'],
+    er: ['o', 'es', 'e', 'emos', 'éis', 'en'],
+    ir: ['o', 'es', 'e', 'imos', 'ís', 'en'],
+  };
+
+  const verbSlice = verb.slice(0, -2);
+  const end = verb.slice(-2);
+
+  return `${conj[end]
+    .map((val, i) => `${pron[i]} ${verbSlice}${val}`)
+    .join(', ')}.`;
+}
+
+console.log(espVerb('pasar'));
