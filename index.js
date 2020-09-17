@@ -1180,3 +1180,84 @@ function espVerb(verb) {
 }
 
 console.log(espVerb('pasar'));
+
+// Validating a Set in the Set Game
+// In the game Set, three cards form a set if each of the cards are identical or completely different for each of the four properties. All three cards must:
+// - Have the same color or different colors.
+// - Have the same number or different numbers.
+// - Have the same shades or different shades.
+// - Have the same shape or different shapes.
+
+// The four properties are:
+// - Colors: red, purple, green
+// - Numbers: 1, 2, 3
+// - Shades: empty, lined, full
+// - Shapes: squiggle, oval, diamond
+
+// Here, a set is represented by an array containing three cards. Each card is represented by an object of properties and values. Write a function that determines whether three cards constitute a valid set.
+// - A set cannot have 2/3 cards having the same property. Either all must share that property, or none will share that particular property.
+function isSet(cards) {
+  return Object.keys(cards[0]).every((val) =>
+    [1, 3].includes(new Set(cards.map((c) => c[val])).size)
+  );
+
+  // const arr = [];
+  // for (let key in cards[0]) {
+  //   console.log('key: ', key);
+  //   for (let j in cards) {
+  //     console.log('j: ', j);
+  //     arr.push(cards[j][key]);
+  //     console.log('cards j key: ', cards[j][key]);
+  //     console.log('arr: ', arr);
+  //   }
+  //   if (new Set(arr).size === 2) return false;
+  // }
+  // return true;
+
+  // let arr = [];
+  // for (let prop in cards[0]) {
+  //   for (let card of cards) {
+  //     arr = [...arr, card[prop]];
+  //   }
+  //   set = new Set(arr);
+  //   if (set.size === 2) return false;
+  // }
+  // return true;
+
+  // return cards
+  //   .reduce(
+  //     ([colors, numbers, shades, shapes], { color, number, shade, shape }) => [
+  //       colors.concat(color),
+  //       numbers.concat(number),
+  //       shades.concat(shade),
+  //       shapes.concat(shape),
+  //     ],
+  //     [[], [], [], []]
+  //   )
+  //   .every((prop) => [1, cards.length].includes(new Set(prop).size));
+
+  // const color = [...new Set(cards.map((el) => el.color))].length;
+  // const shape = [...new Set(cards.map((el) => el.shape))].length;
+  // const shade = [...new Set(cards.map((el) => el.shade))].length;
+  // const number = [...new Set(cards.map((el) => el.number))].length;
+
+  // return color == 2 || shape === 2 || shade === 2 || number === 2
+  //   ? false
+  //   : true;
+}
+
+console.log(
+  isSet([
+    { color: 'red', number: 1, shade: 'lined', shape: 'squiggle' },
+    { color: 'red', number: 1, shade: 'lined', shape: 'diamond' },
+    { color: 'red', number: 1, shade: 'lined', shape: 'squiggle' },
+  ])
+);
+
+console.log(
+  isSet([
+    { color: 'red', number: 1, shade: 'lined', shape: 'squiggle' },
+    { color: 'red', number: 1, shade: 'lined', shape: 'diamond' },
+    { color: 'red', number: 1, shade: 'lined', shape: 'oval' },
+  ])
+);
