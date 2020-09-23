@@ -1296,3 +1296,17 @@ console.log(
     ['m', 'n', 'o', 'p'],
   ])
 );
+
+// Decompose Address
+// Create a function that decomposes an address string into an array of five substrings:
+// - Street Number
+// - Street Name
+// - City Name
+// - State
+// - Zip Code
+// All street extensions will be shortened to two-letter formats.
+function decomposeAddress(str) {
+  return str.match(/(\d+) (.+ \w{2}) (.+), (\w{2}) (\d+)/).slice(1);
+}
+
+console.log(decomposeAddress('3315 Vanity St Beverly Hills, CA 90210'));
