@@ -1261,3 +1261,38 @@ console.log(
     { color: 'red', number: 1, shade: 'lined', shape: 'oval' },
   ])
 );
+
+// Peeling off the Outer Layers
+// Given an array of arrays, return a new array of arrays containing every element, except for the outer elements.
+// - The 2D grid is always a rectangular/square shape.
+// - Always return some form of nested array, unless there are no elements. In that case, return an empty array.
+function peelLayerOff(arr) {
+  return arr.slice(1, -1).map((val) => val.slice(1, -1));
+
+  // return Array.isArray(arr)
+  //   ? arr.slice(1, arr.length - 1).map(peelLayerOff)
+  //   : arr;
+
+  // return arr
+  //   .filter((_, i) => i > 0 && i < arr.length - 1)
+  //   .map((v) => v.slice(1, -1));
+
+  // arr.shift();
+  // arr.pop();
+  // arr.map((val) => val.shift() && val.pop());
+  // or
+  // for (let i = 0; i < arr.length; i++) {
+  //   arr[i].shift();
+  //   arr[i].pop();
+  // }
+  // return arr;
+}
+
+console.log(
+  peelLayerOff([
+    ['a', 'b', 'c', 'd'],
+    ['e', 'f', 'g', 'h'],
+    ['i', 'j', 'k', 'l'],
+    ['m', 'n', 'o', 'p'],
+  ])
+);
