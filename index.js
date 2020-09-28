@@ -1310,3 +1310,24 @@ function decomposeAddress(str) {
 }
 
 console.log(decomposeAddress('3315 Vanity St Beverly Hills, CA 90210'));
+
+// Orthogonal Vector
+// Create a function that takes two vectors as arrays and checks if the two vectors are orthogonal or not. The return value is boolean. Two vectors a and b are orthogonal if their dot product is equal to zero.
+// - The two arrays will be of same length.
+function isOrthogonal(arr1, arr2) {
+  return !arr1.reduce((a, b, i) => a + b * arr2[i], 0);
+
+  // return arr1.map((val, i) => val * arr2[i]).reduce((a, b) => a + b, 0) === 0;
+
+  // let sum = 0;
+  // for (let val in arr1) {
+  //   sum += arr1[val] * arr2[val];
+  // }
+  // return sum === 0;
+
+  // const [a, b, c = 0] = arr1;
+  // const [d, e, f = 0] = arr2;
+  // return a * d + b * e + c * f === 0;
+}
+
+console.log(isOrthogonal([2, 4, 1], [2, 1, -8]));
