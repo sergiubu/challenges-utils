@@ -1331,3 +1331,24 @@ function isOrthogonal(arr1, arr2) {
 }
 
 console.log(isOrthogonal([2, 4, 1], [2, 1, -8]));
+
+// Fibonacci String
+// A Fibonacci string is a precedence of the Fibonacci series. It works with any two characters of the English alphabet (as opposed to the numbers 0 and 1 in the Fibonacci series) as the initial items and concatenates them together as it progresses similarly to the Fibonacci series.
+// - All values for n will be at least 2.
+function fibStr(n, str) {
+  for (let i = 0; i < n - 2; i++) {
+    str.push(str[str.length - 1] + str[str.length - 2]);
+  }
+  return str.join(', ');
+
+  // return Array.from({ length: n })
+  //   .reduce((ac, _, i) => (i >= 2 ? ac.concat(ac[i - 1] + ac[i - 2]) : ac), str)
+  //   .join(', ');
+
+  // while (n-- > 2) str.push(str.slice(-2).reverse().join(''));
+  // return str.join(', ');
+}
+
+console.log(fibStr(3, ['j', 'h']));
+console.log(fibStr(5, ['e', 'a']));
+console.log(fibStr(6, ['n', 'k']));
