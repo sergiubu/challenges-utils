@@ -1352,3 +1352,20 @@ function fibStr(n, str) {
 console.log(fibStr(3, ['j', 'h']));
 console.log(fibStr(5, ['e', 'a']));
 console.log(fibStr(6, ['n', 'k']));
+
+// Recursion: Fibonacci String
+// A Fibonacci string is a precedence of the Fibonacci series. It works with any two characters of the English alphabet (as opposed to the numbers 0 and 1 in the Fibonacci series) as the initial items and concatenates them together as it progresses similarly to that of the Fibonacci series. See examples for more details.
+// - All values for n will be at least 2.
+// - It is expected from the challenge-takers to come up with a solution using the concept of recursion or the so-called recursive approach.
+function fibStr(n, str) {
+  return n === 2
+    ? str.join(', ')
+    : fibStr(n - 1, str.concat(str[str.length - 1] + str[str.length - 2]));
+
+  // return n === 2 ? str.join(", ") : fibStr(n - 1, [...str, str[str.length - 1] + str[str.length - 2]]);
+
+  // if (i + 2 === n) return str.join(', ');
+  // return fibStr(n, [...str, str[i + 1] + str[i]], ++i);
+}
+
+console.log(fibStr(6, ['h', 'j']));
