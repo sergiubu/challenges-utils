@@ -1369,3 +1369,24 @@ function fibStr(n, str) {
 }
 
 console.log(fibStr(6, ['h', 'j']));
+
+// It's a Meteor!
+// In a video game, a meteor will fall toward the main character's home planet. Given the meteor's trajectory as a string in the form y = mx + b and the character's position as an array pair of [x, y], return true if the meteor will hit the character and false if it will not.
+// - The b value will never be zero or blank.
+// - The m value will always be an integer.
+function willHit(equation, position) {
+  return (
+    position[0] ===
+    eval(
+      equation.replace('x', '*' + position[1].toString()).replace('y = ', '')
+    )
+  );
+
+  // [x, y] = position;
+  // return eval(equation.replace('=', '===').replace('x', '*x'));
+
+  // [x, y] = position;
+  // return y === eval(equation.replace('x', `*${x}`));
+}
+
+console.log(willHit('y = 2x - 5', [0, 0]));
