@@ -1390,3 +1390,64 @@ function willHit(equation, position) {
 }
 
 console.log(willHit('y = 2x - 5', [0, 0]));
+
+// Persistence
+// The additive persistence of an integer, n, is the number of times you have to replace n with the sum of its digits until n becomes a single digit integer.
+
+// The multiplicative persistence of an integer, n, is the number of times you have to replace n with the product of its digits until n becomes a single digit integer.
+
+// Create two functions that take an integer as an argument and:
+// - Return its additive persistence.
+// - Return its multiplicative persistence.
+function additivePersistence(n) {
+  let count = 0;
+  while (String(n).length > 1) {
+    n = [...String(n)].reduce((a, b) => +a + +b);
+    count++;
+  }
+  return count;
+
+  // if (n < 10) return 0;
+  // const newNum = Array.from(n.toString())
+  //   .map(Number)
+  //   .reduce((a, b) => a + b, 0);
+  // return 1 + additivePersistence(newNum);
+
+  // const str = n.toString();
+  // if (str.length === 1) return 0;
+  // const nextNum = str.split('').reduce((a, b) => +a + +b, 0);
+  // return 1 + additivePersistence(nextNum);
+
+  // const str = n.toString();
+  // if (str.length === 1) return 0;
+  // let add = 0;
+  // if (str.length > 1) {
+  //   for (let i = 0; i < str.length; i++) {
+  //     add += parseInt(str[i]);
+  //   }
+  //   return 1 + additivePersistence(add);
+  // }
+}
+
+function multiplicativePersistence(n) {
+  let count = 0;
+  while (String(n).length > 1) {
+    n = [...String(n)].reduce((a, b) => +a * +b);
+    count++;
+  }
+  return count;
+
+  // if (n < 10) return 0;
+  // const newNum = Array.from(n.toString())
+  //   .map(Number)
+  //   .reduce((a, b) => a * b, 1);
+  // return 1 + multiplicativePersistence(newNum);
+
+  // const str = n.toString();
+  // if (str.length === 1) return 0;
+  // const nextNum = str.split('').reduce((a, b) => a * b, 1);
+  // return 1 + multiplicativePersistence(nextNum);
+}
+
+console.log(additivePersistence(57));
+console.log(multiplicativePersistence(39));
