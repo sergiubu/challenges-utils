@@ -1492,3 +1492,90 @@ function happyNums(n) {
 }
 
 console.log(happyNums(109));
+
+// Underscore-Hash Staircase
+// Create a function that will build a staircase using the underscore _ and hash # symbols. A positive value denotes the staircase's upward direction and downwards for a negative value.
+// - All inputs are either positive or negative values.
+// - The string to be returned is adjoined with the newline character (\n).
+function staircase(n) {
+  let [r, k] = [[], Math.abs(n)];
+  for (let i = 1; i <= k; i++) {
+    r = [...r, '_'.repeat(k - i) + '#'.repeat(i)];
+  }
+  return (n > 0 ? r : r.reverse()).join('\n');
+
+  // return n < 0
+  //   ? staircase(-n).split`\n`.reverse().join`\n`
+  //   : [...Array(n)].map((_, i) => `_`.repeat(n - i - 1) + `#`.repeat(i + 1))
+  //       .join`\n`;
+
+  // const abs = Math.abs(n);
+  // let arr = Array(abs)
+  //   .fill(0)
+  //   .map((__, index) => '_'.repeat(abs - 1 - index) + '#'.repeat(index + 1));
+  // return (n < 0 ? arr.reverse() : arr).join('\n');
+
+  // let ret = [];
+  // for (i = Math.abs(n); i > 0; i--) {
+  //   ret.push('#'.repeat(i).padStart(Math.abs(n), '_'));
+  // }
+  // return n > 0 ? ret.reverse().join('\n') : ret.join('\n');
+
+  // if (n > 0) {
+  //   return [...Array(n)]
+  //     .map((_, i) => '_'.repeat(n - i - 1) + '#'.repeat(i + 1))
+  //     .join('\n');
+  // } else {
+  //   return [...Array(-n)]
+  //     .map((_, i) => '_'.repeat(i) + '#'.repeat(-n - i))
+  //     .join('\n');
+  // }
+
+  // length = Math.abs(n);
+  // return Array.from({ length }, (_, i) =>
+  //   ['_', '#']
+  //     .map((e, j) => e.repeat(j ? i + 1 : length - 1 - i))
+  //     .filter(Boolean)
+  //     .join('')
+  // )
+  //   [n < 0 ? 'reverse' : 'valueOf']()
+  //   .join('\n');
+
+  // const positive = Math.abs(n);
+  // const arr = Array.from(
+  //   { length: positive },
+  //   (_, i) => `${`_`.repeat(positive - i - 1)}${`#`.repeat(i + 1)}`,
+  // );
+  // return (n < 0 ? arr.reverse() : arr).join('\n');
+
+  // const test = n > 0;
+  // n = Math.abs(n);
+  // const arr = Array.from(
+  //   { length: n },
+  //   (x, i) => '_'.repeat(i) + '#'.repeat(n - i)
+  // );
+  // return (test ? arr.reverse() : arr).join('\n');
+
+  // const steps = [];
+  // for (let i = 1; i < Math.abs(n) + 1; i++) {
+  //   steps.push('_'.repeat(Math.abs(n) - i) + '#'.repeat(i));
+  // }
+  // if (n < 0) {
+  //   steps.reverse();
+  // }
+  // return steps.join('\n');
+
+  // const stairs = [];
+  // let flag = false;
+  // if (n < 0) {
+  //   n = +n.toString().replace(/-/, '');
+  //   flag = true;
+  // }
+  // for (let i = 0; i < n; i++) {
+  //   stairs.push('_'.repeat(n - ++i) + '#'.repeat(i--) + '\n');
+  // }
+  // return flag ? stairs.reverse().join('') : stairs.join('');
+}
+
+console.log(staircase(8));
+console.log(staircase(-8));
