@@ -1579,3 +1579,25 @@ function staircase(n) {
 
 console.log(staircase(8));
 console.log(staircase(-8));
+
+// Iterated Square Root
+// The iterated square root of a number is the number of times the square root function must be applied to bring the number strictly under 2.
+
+// Given an integer, return its iterated square root. Return "invalid" if it is negative.
+function iSqrt(n) {
+  if (n < 0) return 'invalid';
+  let count = 0;
+  while (n >= 2) {
+    n = Math.sqrt(n);
+    count++;
+  }
+  return count;
+
+  // if (n < 0) return 'invalid';
+  // for (var i = 0; n >= 2; i++) n = Math.sqrt(n);
+  // return i;
+
+  // return n < 0 ? 'invalid' : n >= 2 ? iSqrt(n ** 0.5) + 1 : 0;
+}
+
+console.log(iSqrt(27));
